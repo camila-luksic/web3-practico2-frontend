@@ -1,0 +1,36 @@
+.login-form-card {
+  background-color: #ffffff; /* Fondo blanco para la tarjeta */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.login-form-title {
+  color: #2c3e50; /* Color de texto más oscuro para el título */
+  font-size: 24px; /* Tamaño de fuente más grande */
+  font-weight: bold; /* Texto en negrita */
+}
+
+.login-form-button {
+  background-color: #3498db; /* Azul más brillante */
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.login-form-button:hover {
+  background-color: #217dbb; /* Azul más oscuro al pasar el mouse */
+}
+
+.login-form-link {
+  color: #3498db; /* Azul para el enlace */
+  text-decoration: none; /* Sin subrayado */
+}
+
+.login-form-link:hover {
+  text-decoration: underline; /* Subrayado al pasar el mouse */
+  color: #217dbb;
+}
