@@ -13,7 +13,6 @@ export class CuentaService {
                 })
         })
     }
-    // Obtiene solo las cuentas del usuario logueado (endpoint por defecto del ViewSet)
     getCuentasDelUsuario(): Promise<Array<Cuenta>> {
         return new Promise<Array<Cuenta>>((resolve, reject) => {
             apiClient.get("cuentas/")

@@ -100,13 +100,13 @@ export const MovimientosForm = () => {
         if (!userId) return;
 
         new MovimientoService()
-            .getmovimientos() // Corregido el nombre del método del servicio
+            .getmovimientos() 
             .then((response) => {
-                setMovimientos(response); // Corregido el nombre del estado
+                setMovimientos(response); 
             })
             .catch((error) => {
-                console.error("Error al cargar los movimientos:", error); // Corregido el mensaje de error
-                alert("Error al cargar los movimientos, intente nuevamente"); // Corregido el mensaje al usuario
+                console.error("Error al cargar los movimientos:", error); 
+                alert("Error al cargar los movimientos, intente nuevamente"); 
             });
     };
 

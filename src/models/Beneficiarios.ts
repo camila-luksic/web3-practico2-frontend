@@ -1,6 +1,5 @@
 export interface CuentaPropia {
-    id: number | string; // El ID podría ser número o string, ajusta según tu backend
-    // ... otras propiedades de la cuenta propia si las necesitas en la interfaz
+    id: number | string;
 }
 export interface Beneficiarios {
     id: string;

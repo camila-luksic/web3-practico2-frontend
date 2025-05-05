@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import { URLS } from "../navigation/constants";
 import { Beneficiarios } from "../models/Beneficiarios";
 import { BeneficiarioService } from "../services/BeneficiarioService";
+import { Menu } from "../components/menu";
 
 
 const BeneficiariosList = () => {
@@ -49,6 +50,8 @@ const BeneficiariosList = () => {
   }
 
   return (
+    <>
+    <Menu/>
     <Card title="Lista de beneficiarios">
       <Table>
         <thead>
@@ -86,7 +89,15 @@ const BeneficiariosList = () => {
           ))}
         </tbody>
       </Table>
+       <div className="mt-4">
+              <Button
+                onClick={() => navigate(URLS.Beneficiarios.CREATE)}
+                variant="primary"
+                title="Crear Nuevo Beneficiario"
+                />
+            </div>
     </Card>
+    </>
   );
 };
 

@@ -8,7 +8,7 @@ import { URLS } from "../navigation/constants";
 import { useEffect } from "react";
 import { Cuenta } from "../models/Cuenta";
 import { CuentaService } from "../services/CuentaService";
-import { getUserIdFromToken } from "../utils/AuthUtils"; // la ruta depende de tu estructura
+import { getUserIdFromToken } from "../utils/AuthUtils"; 
 
 
 type Inputs = {
@@ -26,7 +26,7 @@ export const CuentasForm = () => {
         formState: { errors },
     } = useForm<Inputs>()
     const onSubmit: SubmitHandler<Inputs> = (data) => {
-        const userId = getUserIdFromToken(); // 🔥 obtenemos el user_id
+        const userId = getUserIdFromToken(); 
 
         if (!userId) {
             alert('Usuario no autenticado.');

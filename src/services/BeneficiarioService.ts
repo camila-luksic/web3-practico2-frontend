@@ -2,7 +2,7 @@ import { Beneficiarios } from './../models/Beneficiarios';
 import apiClient from "./interceptors"
 
 
-export class BeneficiarioService { // <-- lo que guardaste
+export class BeneficiarioService { 
 
     getbeneficiarios(): Promise<Array<Beneficiarios>> {
         return new Promise<Array<Beneficiarios>>((resolve, reject) => {

@@ -5,45 +5,37 @@ import { URLS } from "../navigation/constants";
 import { LoginRequest } from "../models/dto/LoginRequest";
 import { AuthService } from "../services/AuthService";
 
-// Define the structure of the form input values
 type Inputs = {
     email: string;
     password: string;
 };
 
-// LoginForm component definition
 export const LoginForm = () => {
-    // Hook to navigate between routes
+  
     const navigate = useNavigate();
     const [loginError, setLoginError] = useState<string | null>(null);
 
-    // Use the useForm hook from react-hook-form to manage form state
+   
     const {
-        register, // Function to register input fields
-        handleSubmit, // Function to handle form submission
-        formState: { errors }, // Object containing form validation errors
+        register, 
+        handleSubmit, 
+        formState: { errors }, 
     } = useForm<Inputs>();
 
-    // Function to handle form submission
     const onSubmit: SubmitHandler<Inputs> = (data) => {
         console.log("Form data submitted:", data);
-        setLoginError(null); // Clear any previous error message
-
-        // Create a LoginRequest object from the form data
+        setLoginError(null); 
         const login: LoginRequest = {
             username: data.email,
             password: data.password,
         };
 
-        // Instantiate the AuthService and call the login method
         new AuthService()
             .login(login.username, login.password)
             .then((response) => {
                 console.log("Login successful", response);
 
               
-
-                // Navigate to the home page after successful login
                 navigate(URLS.Cuentas.LIST);
             })
             .catch((error) => {
@@ -52,7 +44,6 @@ export const LoginForm = () => {
             });
     };
 
-    // Render the login form
     return (
         <div className="container d-flex justify-content-center align-items-center min-vh-100 bg-light">
             <div className="card w-100 max-w-md shadow-lg">

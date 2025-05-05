@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 import { URLS } from "../navigation/constants";
 import { Movimientos } from "../models/Movimientos";
 import { MovimientoService } from "../services/MovimientosService";
+import { Menu } from '../components/menu';
 
 
 const MovimientosList = () => {
@@ -50,6 +51,8 @@ const MovimientosList = () => {
     }
 
     return (
+        <>
+        <Menu/>
         <Card title="Lista de Movimientos">
             <Table>
                 <thead>
@@ -58,7 +61,6 @@ const MovimientosList = () => {
                         <th>Tipo</th>
                         <th>Monto</th>
                         <th>Fecha</th>
-                        <th>Cuenta</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -71,30 +73,19 @@ const MovimientosList = () => {
                             <td className="text-center border-t-1 border-gray-300">{movimiento.monto}</td>
                             <td className="text-center border-t-1 border-gray-300">{movimiento.fecha}</td>
                             
-                            <td className="text-center border-t-1 border-gray-300">{movimiento.nroCuenta}</td>
-                            <td className="text-center border-t-1 border-gray-300">
-                                <Button
-                                    onClick={() => {
-                                        navigate(URLS.Movimientos.UPDATE(movimiento.id.toString()));
-                                    }}
-                                    variant="primary"
-                                    title="Editar"
-                                ></Button>
-                            </td>
-                            <td className="px-3 py-3 text-center border-t-1 border-gray-300">
-                                <Button
-                                    onClick={() => {
-                                        deleteMovimiento(movimiento.id.toString());
-                                    }}
-                                    variant="danger"
-                                    title="Eliminar"
-                                ></Button>
-                            </td>
                         </tr>
                     ))}
                 </tbody>
             </Table>
+             <div className="mt-4">
+                    <Button
+                      onClick={() => navigate(URLS.Movimientos.CREATE)}
+                      variant="primary"
+                      title="Crear Nueva Movimiento"
+                      />
+                  </div>
         </Card>
+        </>
     );
 };
 

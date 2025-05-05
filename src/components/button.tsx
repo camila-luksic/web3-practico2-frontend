@@ -1,16 +1,52 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 
 type ButtonProps = {
-    title: string;
-    onClick?: () => void;
-    variant?: "primary" | "success" | "danger";
-    type?: DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>["type"];
+  title: string;
+  onClick?: () => void;
+  variant?: "primary" | "success" | "danger";
+  type?: DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>["type"];
 }
+
 export const Button = ({ title, onClick, type, variant = "primary" }: ButtonProps) => {
-    return (
-        <button type={type}
-            className={
-                `text-white py-1 px-4 rounded cursor-pointer ${variant === "primary" ? "bg-blue-500 hover:bg-blue-600" : variant === "success" ? "bg-green-500 hover:bg-green-600" : "bg-red-500 hover:bg-red-600"}`
-            } onClick={onClick}>{title}</button>
-    );
-}
+  const baseStyles = {
+    color: 'white',
+    padding: '0.25rem 1rem', // Equivalente a py-1 px-4
+    borderRadius: '0.25rem', // Equivalente a rounded
+    cursor: 'pointer',
+    border: 'none',
+    fontWeight: 'bold',
+  };
+
+  const variantStyles = {
+    primary: {
+      backgroundColor: 'blue',
+      ':hover': { // Pseudo-selector para el hover (esto no es estándar en style)
+        backgroundColor: 'darkblue',
+      },
+    },
+    success: {
+      backgroundColor: 'green',
+      ':hover': {
+        backgroundColor: 'darkgreen',
+      },
+    },
+    danger: {
+      backgroundColor: 'red',
+      ':hover': {
+        backgroundColor: 'darkred',
+      },
+    },
+  };
+
+  const currentVariantStyle = variantStyles[variant] || variantStyles.primary;
+
+  return (
+    <button
+      type={type}
+      style={{ ...baseStyles, ...currentVariantStyle }}
+      onClick={onClick}
+    >
+      {title}
+    </button>
+  );
+};

@@ -24,7 +24,7 @@ export const TransferenciaForm = () => {
     const [errorTransferencia, setErrorTransferencia] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(false);
     const [transferenciaData, setTransferenciaData] = useState<Transferencia | null>(null);
-    const [receptorSeleccionado, setReceptorSeleccionado] = useState<number | undefined>(); // Cambiado a number | undefined
+    const [receptorSeleccionado, setReceptorSeleccionado] = useState<number | undefined>(); 
 
     const {
         register,
@@ -162,7 +162,7 @@ export const TransferenciaForm = () => {
                                 'block w-full px-4 py-2 mt-1 text-sm rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500'}
                         >
                             {beneficiarios.map((beneficiario) => {
-    console.log("Beneficiario:", beneficiario); // <-- Agrega esto
+    console.log("Beneficiario:", beneficiario);
     return (
         <option key={beneficiario.id} value={beneficiario.cuenta_propia?.id}>
             {beneficiario.nombreCompleto}
