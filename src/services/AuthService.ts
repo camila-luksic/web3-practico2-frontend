@@ -41,4 +41,10 @@ export class AuthService {
             })
         });
     }
+    doLogout = () => {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        window.location.href = '/login';
+    }
 }
+export const authService = new AuthService();

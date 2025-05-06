@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { URLS } from '../navigation/constants';
+import { authService } from '../services/AuthService';
 
 export const Menu = () => {
   const navStyle = {
@@ -32,6 +33,9 @@ export const Menu = () => {
     fontSize: '1.1em',
     transition: 'color 0.3s ease',
   });
+  const handleLogout = () => {
+    authService.doLogout();
+};
 
   return (
     <nav style={navStyle}>
@@ -56,6 +60,11 @@ export const Menu = () => {
              Realizar Transferencia
           </NavLink>
         </li>
+        <li style={liLastStyle}>
+                    <button onClick={handleLogout} style={{ ...linkStyle({ isActive: false }), backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}>
+                        Cerrar Sesión
+                    </button>
+                </li>
       </ul>
     </nav>
   );
